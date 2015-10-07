@@ -1,0 +1,22 @@
+#--------------------------------------------------
+# Répertoire : /
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+
+RewriteRule index-([a-zA-Z\.\']+)-([a-zA-Z]+)-([a-zA-Z\ -]+)-([0-9]+)  index.php?region=$1&sexe=$2&origine=$3&page=$4 [L]
+RewriteRule index-([a-zA-Z\.\']+)-([a-zA-Z]+)  index.php?region=$1&sexe=$2 [L]
+RewriteRule index-([a-zA-Z\.\']+)  index.php?region=$1 [L]
+
+RewriteRule profil-([0-9]+)  profil.php?profil=$1 [L]
+
+RewriteRule chercher-([a-zA-Z0-9\ \=\-]+)  chercher.php?nom=$1 [L]
